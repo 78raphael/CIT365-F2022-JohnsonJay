@@ -19,7 +19,7 @@ namespace MathQuiz
         int minuend, subtrahend;
         int multiplicand, multiplier;
         int dividend, divisor;
-
+        int timeLeft;
 
         public void StartTheQuiz()
         {
@@ -34,7 +34,7 @@ namespace MathQuiz
             minuend = randomizer.Next(1, 101);
             subtrahend = randomizer.Next(1, minuend);
             minusLeftLabel.Text = minuend.ToString();
-            minusRightLabel.Text = multiplier.ToString();
+            minusRightLabel.Text = subtrahend.ToString();
             difference.Value = 0;
 
             multiplicand = randomizer.Next(2, 11);
@@ -49,6 +49,10 @@ namespace MathQuiz
             dividedLeftLabel.Text = dividend.ToString();
             dividedRightLabel.Text = divisor.ToString();
             quotient.Value = 0;
+
+            timeLeft = 30;
+            timeLabel.Text = "30 seconds";
+            timer1.Start();
         }
         public Form1()
         {
@@ -86,6 +90,48 @@ namespace MathQuiz
 
         }
 
+        private void timeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(CheckTheAnswer())
+            {
+                timer1.Stop();
+                MessageBox.Show("You got all the answers right!", "Congratulations!");
+                startButton.Enabled = true;
+            }
+            else if(timeLeft > 0)
+            {
+                timeLeft = timeLeft - 1;
+                timeLabel.Text = timeLeft + " seconds";
+            }
+            else
+            {
+                timer1.Stop();
+                timeLabel.Text = "Time's up!";
+                MessageBox.Show("You didn't finish in time.", "Sorry!");
+                sum.Value = addend1 + addend2;
+                difference.Value = minuend - subtrahend;
+                product.Value = multiplicand * multiplier;
+                quotient.Value = dividend / divisor;
+                startButton.Enabled = true;
+            }
+        }
+
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown answerBox = sender as NumericUpDown;
+
+            if (answerBox != null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
+        }
+
         private void timesLeftLabel_Click(object sender, EventArgs e)
         {
 
@@ -98,6 +144,17 @@ namespace MathQuiz
 
         private void label6_Click(object sender, EventArgs e)
         {
+
+        }
+        private bool CheckTheAnswer()
+        {
+            if ((addend1 + addend2 == sum.Value)
+                && (minuend - subtrahend == difference.Value)
+                && (multiplicand * multiplier == product.Value)
+                && (dividend / divisor == quotient.Value))
+                return true;
+            else
+                return false;
 
         }
     }
