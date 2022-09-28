@@ -76,7 +76,24 @@ namespace MathQuiz
 
         private void sum_ValueChanged(object sender, EventArgs e)
         {
+            NumericUpDown enteredValue = sender as NumericUpDown;
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
+            if ((addend1 + addend2) == enteredValue.Value)
+            {
+                player.Play();
+            }
+        }
+
+        private void difference_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown enteredValue = sender as NumericUpDown;
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+
+            if ((minuend - subtrahend) == enteredValue.Value)
+            {
+                player.Play();
+            }
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -107,6 +124,11 @@ namespace MathQuiz
             {
                 timeLeft = timeLeft - 1;
                 timeLabel.Text = timeLeft + " seconds";
+                if(timeLeft == 5)
+                {
+                    timeLabel.BackColor = Color.Red;
+                    timeLabel.ForeColor = Color.White;
+                }
             }
             else
             {
@@ -130,6 +152,29 @@ namespace MathQuiz
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
             }
+        }
+
+        private void product_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown enteredValue = sender as NumericUpDown;
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+
+            if ((multiplicand * multiplier) == enteredValue.Value)
+            {
+                player.Play();
+            }
+        }
+
+        private void quotient_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown enteredValue = sender as NumericUpDown;
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+
+            if ((dividend / divisor) == enteredValue.Value)
+            {
+                player.Play();
+            }
+
         }
 
         private void timesLeftLabel_Click(object sender, EventArgs e)
