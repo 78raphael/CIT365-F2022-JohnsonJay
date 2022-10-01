@@ -16,5 +16,34 @@ namespace MegaDesk_Johnson
         {
             InitializeComponent();
         }
+
+        private void addQuoteButton_Click(object sender, EventArgs e)
+        {
+            AddQuote viewAddQuote = new AddQuote();
+            viewAddQuote.Tag = this;
+            viewAddQuote.Show(this);
+            Hide();
+        }
+
+        private void ViewQuotesButton_Click(object sender, EventArgs e)
+        {
+            ViewAllQuotes viewQuotes = new ViewAllQuotes();
+            viewQuotes.Tag = this;
+            viewQuotes.Show(this);
+            Hide();
+        }
+
+        private void SearchQuotesButton_Click(object sender, EventArgs e)
+        {
+            SearchQuotes searchQuotes = new SearchQuotes();
+            searchQuotes.Tag = this;
+            searchQuotes.Show(this);
+            Hide();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
