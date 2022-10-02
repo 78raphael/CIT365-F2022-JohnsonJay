@@ -13,14 +13,6 @@ namespace MegaDesk_Johnson
 {
     public partial class AddQuote : Form
     {
-        public enum SurfaceMaterial
-        {
-            Laminate,
-            Oak,
-            Rosewood,
-            Veneer,
-            Pine
-        }
 
         public AddQuote()
         {
