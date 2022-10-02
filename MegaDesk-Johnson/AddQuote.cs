@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,15 @@ namespace MegaDesk_Johnson
 {
     public partial class AddQuote : Form
     {
+        public enum SurfaceMaterial
+        {
+            Laminate,
+            Oak,
+            Rosewood,
+            Veneer,
+            Pine
+        }
+
         public AddQuote()
         {
             InitializeComponent();
@@ -31,6 +41,11 @@ namespace MegaDesk_Johnson
 
         private void WidthBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if(Convert.ToInt32(e.KeyChar) == Convert.ToInt32(Keys.Return))
+            {
+                WidthBox.BackColor = Color.White;
+            }
+
             if(Convert.ToInt32(e.KeyChar) < Convert.ToInt32(Keys.D0) || Convert.ToInt32(e.KeyChar) > Convert.ToInt32(Keys.D9))
             {
                 WidthBox.BackColor = Color.Salmon;
@@ -48,16 +63,23 @@ namespace MegaDesk_Johnson
 
             string depthInput = DepthBox.Text;
 
-            if (Convert.ToInt32(depthInput) < MINDEPTH || Convert.ToInt32(depthInput) > MAXDEPTH)
+            try
             {
-                DepthBox.BackColor = Color.Salmon;
-                MessageBox.Show("Outside of range. Please enter a number between 12 & 48");
-                DepthBox.Clear();
-                DepthBox.Focus();
+                if (Convert.ToInt32(depthInput) < MINDEPTH || Convert.ToInt32(depthInput) > MAXDEPTH)
+                {
+                    DepthBox.BackColor = Color.Salmon;
+                    MessageBox.Show("Outside of range. Please enter a number between 12 & 48");
+                    DepthBox.Clear();
+                    DepthBox.Focus();
+                }
+                else
+                {
+                    DepthBox.BackColor = Color.White;
+                }
             }
-            else
+            catch (Exception)
             {
-                DepthBox.BackColor = Color.White;
+                throw new Exception("Something went wrong.");
             }
         }
     }
