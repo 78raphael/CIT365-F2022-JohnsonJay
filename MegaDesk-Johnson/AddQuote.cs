@@ -12,8 +12,6 @@ namespace MegaDesk_Johnson
 {
     public partial class AddQuote : Form
     {
-        public event EventHandler Enter;
-        private string depthInput = string.Empty;
         public AddQuote()
         {
             InitializeComponent();
@@ -26,27 +24,41 @@ namespace MegaDesk_Johnson
             Close();
         }
 
-        private void DepthBox_TextChanged(object sender, EventArgs e)
+        private void AddQuote_Load(object sender, EventArgs e)
         {
 
         }
-        private void DepthBox_Validated(object sender, CancelEventArgs e)
+
+        private void WidthBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(Convert.ToInt32(e.KeyChar) < Convert.ToInt32(Keys.D0) || Convert.ToInt32(e.KeyChar) > Convert.ToInt32(Keys.D9))
+            {
+                WidthBox.BackColor = Color.Salmon;
+            }
+            else
+            {
+                WidthBox.BackColor = Color.White;
+            }
+        }
+
+        private void DepthBox_Validating(object sender, CancelEventArgs e)
         {
             int MINDEPTH = 12;
             int MAXDEPTH = 48;
 
-            TextBox depthTxt = sender as TextBox;
-            depthInput = depthTxt.Text;
+            string depthInput = DepthBox.Text;
 
-            if ( Convert.ToInt32(depthInput) < MINDEPTH || Convert.ToInt32(depthInput) > MAXDEPTH)
+            if (Convert.ToInt32(depthInput) < MINDEPTH || Convert.ToInt32(depthInput) > MAXDEPTH)
             {
+                DepthBox.BackColor = Color.Salmon;
                 MessageBox.Show("Outside of range. Please enter a number between 12 & 48");
+                DepthBox.Clear();
+                DepthBox.Focus();
             }
-        }
-
-        private void AddQuote_Load(object sender, EventArgs e)
-        {
-
+            else
+            {
+                DepthBox.BackColor = Color.White;
+            }
         }
     }
 }

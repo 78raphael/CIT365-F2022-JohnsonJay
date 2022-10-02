@@ -56,12 +56,13 @@
             // 
             // DepthBox
             // 
+            this.DepthBox.BackColor = System.Drawing.SystemColors.Window;
             this.DepthBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DepthBox.Location = new System.Drawing.Point(416, 109);
             this.DepthBox.Name = "DepthBox";
             this.DepthBox.Size = new System.Drawing.Size(100, 35);
             this.DepthBox.TabIndex = 1;
-            this.DepthBox.TextChanged += new System.EventHandler(this.DepthBox_TextChanged);
+            this.DepthBox.Validating += new System.ComponentModel.CancelEventHandler(this.DepthBox_Validating);
             // 
             // DepthLabel
             // 
@@ -90,6 +91,7 @@
             this.WidthBox.Name = "WidthBox";
             this.WidthBox.Size = new System.Drawing.Size(100, 35);
             this.WidthBox.TabIndex = 3;
+            this.WidthBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WidthBox_KeyPress);
             // 
             // NumberOfDrawersLabel
             // 
