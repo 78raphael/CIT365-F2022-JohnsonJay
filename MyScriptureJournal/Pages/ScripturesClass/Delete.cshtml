@@ -1,0 +1,52 @@
+﻿@page
+@model MyScriptureJournal.Pages.ScripturesClass.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ScriptureClass</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScriptureClass.DateAdded)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScriptureClass.DateAdded)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScriptureClass.Book)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScriptureClass.Book)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScriptureClass.Chapter)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScriptureClass.Chapter)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScriptureClass.Verse)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScriptureClass.Verse)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScriptureClass.Note)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScriptureClass.Note)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ScriptureClass.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

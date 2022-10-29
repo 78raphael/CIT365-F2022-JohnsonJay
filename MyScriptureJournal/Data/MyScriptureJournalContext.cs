@@ -15,5 +15,7 @@ namespace MyScriptureJournal.Data
         }
 
         public DbSet<MyScriptureJournal.Models.Scripture> Scripture { get; set; } = default!;
+
+        public DbSet<MyScriptureJournal.Models.ScriptureClass> ScriptureClass { get; set; }
     }
 }

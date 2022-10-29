@@ -1,5 +1,25 @@
+/*
+    Orange: #FB8122
+    Black:  #1D2228
+    Gray:   #E1E2E2
+*/
+
+* {
+    background-color: #1D2228;
+    color: #E1E2E2;
+}
+
 html {
   font-size: 14px;
+}
+
+header {
+    color: #E1E2E2;
+    background-color: #1D2228;
+}
+
+body {
+    background-color: #1D2228;
 }
 
 @media (min-width: 768px) {
