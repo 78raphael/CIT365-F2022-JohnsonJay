@@ -26,6 +26,16 @@ body {
     color: #d4d4d4;
 }
 
+.navbar-brand {
+    font-family: 'Bellota Text', cursive;
+    font-size: 3em;
+}
+
+.nav-link {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1em;
+}
+
 .btn-primary {
     background-color: rgb(251, 129, 34, 0.8);
     color: #1D2228;
