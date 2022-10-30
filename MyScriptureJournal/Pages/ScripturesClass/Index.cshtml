@@ -25,10 +25,15 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ScriptureClass[0].DateAdded)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                @Html.DisplayNameFor(model => model.ScriptureClass
+[0].DateAdded)
+                </a>
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">
                 @Html.DisplayNameFor(model => model.ScriptureClass[0].Book)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ScriptureClass[0].Chapter)

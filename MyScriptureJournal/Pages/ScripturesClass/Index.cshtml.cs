@@ -14,7 +14,6 @@ namespace MyScriptureJournal.Pages.ScripturesClass
     public class IndexModel : PageModel
     {
         private readonly MyScriptureJournal.Data.MyScriptureJournalContext _context;
-
         public IndexModel(MyScriptureJournal.Data.MyScriptureJournalContext context)
         {
             _context = context;
@@ -27,19 +26,15 @@ namespace MyScriptureJournal.Pages.ScripturesClass
         [BindProperty(SupportsGet = true)]
         public string ScriptureBook { get; set; }
 
-        public async Task OnGetAsync()
-        // {
-        //     var books = from m in _context.ScriptureClass
-        //                 select m;
-        //     if (!string.IsNullOrEmpty(SearchString))
-        //     {
-        //         books = books.Where(s => s.Book.Contains(SearchString));
-        //     }
+        public string DateSort { get; set; }
+        public string BookSort { get; set; }
+/*        public string ChapterSort { get; set; }
+        public string VerseSort { get; set; }*/
 
-        //     ScriptureClass = await books.ToListAsync();
-        // }
-
+        public async Task OnGetAsync( string sortOrder )
         {
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            BookSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             // Use LINQ to get list of genres.
             IQueryable<string> bookQuery = from m in _context.ScriptureClass
                                             orderby m.Book
@@ -47,6 +42,22 @@ namespace MyScriptureJournal.Pages.ScripturesClass
 
             var books = from m in _context.ScriptureClass
                         select m;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    books = books.OrderByDescending(s => s.Book);
+                    break;
+                case "Date":
+                    books = books.OrderBy(s => s.DateAdded);
+                    break;
+                case "date_desc":
+                    books = books.OrderByDescending(s => s.DateAdded);
+                    break;
+                default:
+                    books = books.OrderBy(s => s.Book);
+                    break;
+            }
 
             if (!string.IsNullOrEmpty(SearchString))
             {
@@ -58,7 +69,8 @@ namespace MyScriptureJournal.Pages.ScripturesClass
                 books = books.Where(x => x.Book == ScriptureBook);
             }
             BookList = new SelectList(await bookQuery.Distinct().ToListAsync());
-            ScriptureClass = await books.ToListAsync();
+            /*ScriptureClass = books.AsNoTracking().ToListAsync();*/
+            ScriptureClass = await books.AsNoTracking().ToListAsync();
         }
     }
 }
