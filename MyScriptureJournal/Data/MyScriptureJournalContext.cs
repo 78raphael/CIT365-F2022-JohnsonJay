@@ -9,7 +9,7 @@ namespace MyScriptureJournal.Data
 {
     public class MyScriptureJournalContext : DbContext
     {
-        public MyScriptureJournalContext (DbContextOptions<MyScriptureJournalContext> options)
+        public MyScriptureJournalContext(DbContextOptions<MyScriptureJournalContext> options)
             : base(options)
         {
         }

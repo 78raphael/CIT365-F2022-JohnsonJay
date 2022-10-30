@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model MyScriptureJournal.Pages.ScripturesClass.DetailsModel
 
 @{
@@ -44,6 +44,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.ScriptureClass?.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.ScriptureClass?.ID" role="button" class="btn btn-primary">Edit</a> 
+    <a asp-page="./Index" role="button" class="btn btn-outline-light">Back to List</a>
 </div>

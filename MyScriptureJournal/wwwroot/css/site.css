@@ -1,12 +1,12 @@
 /*
     Orange: #FB8122
     Black:  #1D2228
-    Gray:   #E1E2E2
+    Gray:   #d4d4d4
 */
 
 * {
     background-color: #1D2228;
-    color: #E1E2E2;
+    color: #d4d4d4;
 }
 
 html {
@@ -14,12 +14,38 @@ html {
 }
 
 header {
-    color: #E1E2E2;
+    color: #d4d4d4;
     background-color: #1D2228;
 }
 
 body {
     background-color: #1D2228;
+}
+
+.custom_gray    {
+    color: #d4d4d4;
+}
+
+.btn-primary {
+    background-color: rgb(251, 129, 34, 0.8);
+    color: #1D2228;
+    border: none;
+    
+}
+
+.btn-primary:hover {
+  background-color: rgb(251, 129, 34, 0.5);
+  color: #1D2228;
+  /* border-color: #d4d4d4; */
+}
+
+.btn-danger {
+  color: #1D2228;
+}
+
+.btn-danger:hover {
+  opacity: 0.5;
+  color: #1D2228;
 }
 
 @media (min-width: 768px) {
