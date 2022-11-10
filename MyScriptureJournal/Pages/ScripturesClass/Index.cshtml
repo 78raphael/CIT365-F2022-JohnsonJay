@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Create a new journal entry</h1>
 
 <p>
     <a asp-page="Create" role="button" class="btn btn-primary">Create New</a>
@@ -16,7 +16,7 @@
         <select asp-for="ScriptureBook" asp-items="Model.BookList">
             <option value="">All</option>
         </select>
-        BookSearch: <input type="text" asp-for="SearchString" />
+        Search: <input type="text" asp-for="SearchString" />
         <input type="submit" value="Filter" />
     </p>
 </form>

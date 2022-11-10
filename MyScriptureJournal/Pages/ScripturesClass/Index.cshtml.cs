@@ -61,7 +61,7 @@ namespace MyScriptureJournal.Pages.ScripturesClass
 
             if (!string.IsNullOrEmpty(SearchString))
             {
-                books = books.Where(s => s.Book.Contains(SearchString));
+                books = books.Where(s => s.Note.Contains(SearchString));
             }
 
             if (!string.IsNullOrEmpty(ScriptureBook))
