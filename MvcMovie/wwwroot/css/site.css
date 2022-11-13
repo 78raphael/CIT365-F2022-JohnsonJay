@@ -1,5 +1,34 @@
+:root {
+  --primary: #C6AD8F;
+  --secondary: #F6F4F2;
+  --accent1: #425664;
+}
+
+* {
+  /* background-color: var(--secondary); */
+  color: var(--accent1);
+}
+
 html {
   font-size: 14px;
+}
+
+body  {
+  background-color: var(--secondary);
+}
+
+.custom-color {
+  color: var(--accent1);
+}
+
+.custom-background  {
+  background-color: var(--primary);
+}
+
+btn-primary {
+  background-color: var(--primary);
+  opacity: 0.8;
+  color: var(--secondary)
 }
 
 @media (min-width: 768px) {

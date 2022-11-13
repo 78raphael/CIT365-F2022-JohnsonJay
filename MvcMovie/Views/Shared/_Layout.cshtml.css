@@ -1,5 +1,10 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+:root {
+  --primary: #C6AD8F;
+  --secondary: #F6F4F2;
+  --accent1: #425664;
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -8,7 +13,7 @@ a.navbar-brand {
 }
 
 a {
-  color: #0077cc;
+  color: var(--primary);
 }
 
 .btn-primary {

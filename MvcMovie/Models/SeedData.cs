@@ -25,6 +25,8 @@ public static class SeedData
                     Title = "Brigham City",
                     ReleaseDate = DateTime.Parse("2001-3-30"),
                     Genre = "Drama",
+                    Rating = "PG-13",
+                    Image = "BrighamCity.jpg",
                     Price = 3.99M
                 },
                 new Movie
@@ -32,6 +34,8 @@ public static class SeedData
                     Title = "Once I Was A Beehive",
                     ReleaseDate = DateTime.Parse("2015-8-14"),
                     Genre = "Comedy",
+                    Rating = "PG",
+                    Image = "OnceWasABeehive.jpg",
                     Price = 5.99M
                 },
                 new Movie
@@ -39,6 +43,8 @@ public static class SeedData
                     Title = "The Singles Ward",
                     ReleaseDate = DateTime.Parse("2002-1-30"),
                     Genre = "RomCom",
+                    Rating = "PG",
+                    Image = "SinglesWard.jpg",
                     Price = 4.99M
                 },
                 new Movie
@@ -46,6 +52,8 @@ public static class SeedData
                     Title = "The Work & The Glory",
                     ReleaseDate = DateTime.Parse("2005-1-21"),
                     Genre = "Drama",
+                    Rating = "PG",
+                    Image = "WorkAndGlory.jpg",
                     Price = 3.99M
                 }
             );
